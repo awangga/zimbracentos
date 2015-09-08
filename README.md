@@ -39,6 +39,7 @@ dev.jabar2016.com
 103.30.244.230 dev.jabar2016.com dev
 ```
 
+### Instalation
 ```sh
 #yum install system-config-network-tui system-config-firewall-tui nc sudo mysql mysql-server mysql-devel sysstat wget bind bind-utils –y
 #wget https://files.zimbra.com/downloads/8.6.0_GA/zcs-8.6.0_GA_1153.RHEL7_64.20141215151110.tgz
@@ -46,7 +47,16 @@ dev.jabar2016.com
 #cd zcs-8.6.0_GA_1153.RHEL7_64.20141215151110
 #./install.sh --platform-override
 ```
-Config please set admin password
+
+### Configuration
+please set admin password. to reconfig please run :
+```sh
+# /opt/zimbra/libexec/zmsetup.pl
+to change password
+# su - zimbra
+# zmprov sp <user or admin email address> <new password>
+```
+
 
 ### Starting Service
 Make sure no postfix running : service postfix stop
