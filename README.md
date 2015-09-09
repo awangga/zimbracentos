@@ -55,6 +55,9 @@ please set admin password. to reconfig please run :
 to change password
 # su - zimbra
 # zmprov sp <user or admin email address> <new password>
+to use smtp relay server
+# zmprov mcf zimbraMtaRelayHost smtp.telkom.net:587
+and edit global config on web admin port 7071
 ```
 
 
@@ -67,6 +70,35 @@ $zmcontrol status
 ```
 Admin Panel on locahost:7071 for client on port 80
 
+
+### Uninstall ZImbra
+```sh
+# su – zimbra
+$ zmcontrol stop
+$ exit
+# ps -ef | grep -i zimbra
+# kill -9 <pid>
+# df
+# umount /opt/zimbra/amavisd<-new-blah>/tmp
+# cd /<tmp_tar_install_dir>/zcs/
+# ./install.sh -u
+# rm -rf /opt/zimbra
+# rm -rf /var/log/*zimbra*
+# rm -rf /tmp/*zimbra*
+# rm -rf /tmp/hsperfdata*
+# rm -rf /tmp/install.*
+# rm -rf /tmp/*swatch*
+# rm -rf /tmp/log*
+# userdel zimbra
+# userdel postfix
+# groupdel zimbra
+# groupdel postfix
+# systemctl stop zimbra
+# systemctl disable zimbra
+```
+
+
 ### Referensi
  1. http://cloudindonesia.com/tutorial-instalasi-zimbra-di-centos-6-5/
  2. http://wiki.zimbra.com/wiki/CentOS_6.3_and_Zimbra_8_Install_Guide
+ 3. https://wiki.zimbra.com/wiki/UnInstalling_Zimbra_on_Linux
