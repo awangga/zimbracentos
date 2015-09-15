@@ -58,6 +58,15 @@ to change password
 to use smtp relay server
 # zmprov mcf zimbraMtaRelayHost smtp.telkom.net:587
 and edit global config on web admin port 7071
+# zmprov getAllConfig | grep zimbraMtaSmtpdClientRestrictions
+for looking smtpd_client_restrictions variable
+# zmprov mcf zimbraMtaSmtpdClientRestrictions permit_sasl_authenticated
+changing smtpd_client_restrictions variable from default reject_unauth_pipelining to permit_sasl_authenticated
+# zmprov mcf zimbraMtaSmtpdClientRestrictions permit_sasl_authenticated,permit_mynetworks,reject_unauth_pipelining
+change mode to alwasy https
+# zmtlsctl redirect
+change admin port, zimbraAdminPort can change with other param
+# zmprov ms mail.unm.ac.id zimbraAdminPort 1213
 ```
 
 
@@ -102,3 +111,4 @@ $ exit
  1. http://cloudindonesia.com/tutorial-instalasi-zimbra-di-centos-6-5/
  2. http://wiki.zimbra.com/wiki/CentOS_6.3_and_Zimbra_8_Install_Guide
  3. https://wiki.zimbra.com/wiki/UnInstalling_Zimbra_on_Linux
+ 4. https://wiki.zimbra.com/wiki/CLI_zmtlsctl_to_set_Web_Server_Mode
