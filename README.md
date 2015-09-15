@@ -68,6 +68,32 @@ change mode to alwasy https
 change admin port, zimbraAdminPort can change with other param
 # zmprov ms mail.unm.ac.id zimbraAdminPort 1213
 ```
+#### Firewall
+```sh
+Check your firewall
+# systemctl status firewalld
+# firewall-cmd --state
+# firewall-cmd --zone=public --list-all
+# firewall-cmd --list-services
+# cat /etc/firewalld/zones/public.xml
+Open port 25 and 2053 and other services
+# firewall-cmd --permanent --zone=public --add-port=25/tcp
+# firewall-cmd --permanent --zone=public --add-port=25/udp
+# firewall-cmd --permanent --zone=public --add-port=2053/tcp
+# firewall-cmd --permanent --zone=public --add-service=http
+# firewall-cmd --permanent --zone=public --add-service=https
+# firewall-cmd --permanent --zone=public --add-service=smtp
+# firewall-cmd --permanent --zone=public --add-service=imaps
+# firewall-cmd --permanent --zone=public --add-service=pop3s
+# firewall-cmd --permanent --zone=public --add-service=ldap
+Reload all setting using –permanent option only
+# firewall-cmd --reload
+Remove port access
+# firewall-cmd --permanent --zone=public –-remove-port=443/tcp
+# firewall-cmd --zone=public --remove-port=80/tcp --permanent
+# firewall-cmd --zone=public --remove-port=7071/tcp
+``` 
+Note: The previous command displays the current configuration, ie the permanent settings and the temporary ones. To only get the permanent settings, use the –permanent option.
 
 
 ### Starting Service
@@ -112,3 +138,5 @@ $ exit
  2. http://wiki.zimbra.com/wiki/CentOS_6.3_and_Zimbra_8_Install_Guide
  3. https://wiki.zimbra.com/wiki/UnInstalling_Zimbra_on_Linux
  4. https://wiki.zimbra.com/wiki/CLI_zmtlsctl_to_set_Web_Server_Mode
+ 5. https://wiki.zimbra.com/wiki/Firewall_Configuration
+ 6. http://www.certdepot.net/rhel7-get-started-firewalld/
