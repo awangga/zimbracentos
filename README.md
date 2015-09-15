@@ -80,6 +80,8 @@ Open port 25 and 2053 and other services
 # firewall-cmd --permanent --zone=public --add-port=25/tcp
 # firewall-cmd --permanent --zone=public --add-port=25/udp
 # firewall-cmd --permanent --zone=public --add-port=2053/tcp
+# firewall-cmd --permanent --zone=public --add-port=465/tcp
+# firewall-cmd --permanent --zone=public --add-port=587/tcp
 # firewall-cmd --permanent --zone=public --add-service=http
 # firewall-cmd --permanent --zone=public --add-service=https
 # firewall-cmd --permanent --zone=public --add-service=smtp
