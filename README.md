@@ -45,6 +45,9 @@ dev.jabar2016.com
 #wget https://files.zimbra.com/downloads/8.6.0_GA/zcs-8.6.0_GA_1153.RHEL7_64.20141215151110.tgz
 #tar –xzvf zcs-8.6.0_GA_1153.RHEL7_64.20141215151110.tgz
 #cd zcs-8.6.0_GA_1153.RHEL7_64.20141215151110
+# hostnamectl set-hostname ""
+# hostnamectl set-hostname "" --static
+# hostnamectl set-hostname "" --pretty
 #./install.sh --platform-override
 ```
 
@@ -134,6 +137,25 @@ $ exit
 # systemctl disable zimbra
 ```
 
+### Theme folder
+/opt/zimbra/jetty/webapps/zimbra/skins
+/opt/zimbra/jetty/webapps/zimbra/WEB-INF
+
+$ zmprov flushCache skin
+$ zmprov flushCache locale
+
+### Testing smtp email relay for receiving email
+By using telnet
+```sh
+$ telnet mx1.domain.co.id 25
+ehlo mx1.domain.co.id
+mail from: <rolly@awang.ga>
+rcpt to: <mail@domain.co.id>
+data
+message
+.
+
+```
 
 ### Referensi
  1. http://cloudindonesia.com/tutorial-instalasi-zimbra-di-centos-6-5/
@@ -142,3 +164,4 @@ $ exit
  4. https://wiki.zimbra.com/wiki/CLI_zmtlsctl_to_set_Web_Server_Mode
  5. https://wiki.zimbra.com/wiki/Firewall_Configuration
  6. http://www.certdepot.net/rhel7-get-started-firewalld/
+ 7. http://www.cyberciti.biz/faq/rhel-redhat-centos-7-change-hostname-command/
