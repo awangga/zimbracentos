@@ -137,9 +137,9 @@ $ exit
 # systemctl disable zimbra
 ```
 
-### Theme folder
-/opt/zimbra/jetty/webapps/zimbra/skins
-/opt/zimbra/jetty/webapps/zimbra/WEB-INF
+### Theme changing
+/opt/zimbra/jetty/webapps/zimbra/skins/newskinfolder
+/opt/zimbra/jetty/webapps/zimbra/public/login.jsp
 
 $ zmprov flushCache skin
 $ zmprov flushCache locale
