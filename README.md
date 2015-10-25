@@ -9,6 +9,8 @@ Zimbra on Centos
 HOSTNAME=dev.jabar2016.com
 # vi /etc/hosts
 103.30.244.230 dev.jabar2016.com dev
+# hostnamectl status
+# hostnamectl set-hostname mx1.domain.com --transient
 ```
 
 ```sh
@@ -154,7 +156,19 @@ rcpt to: <mail@domain.co.id>
 data
 message
 .
+quit
 
+```
+
+### Debugging
+```sh
+# tail -f /var/log/zimbra.log 
+# host `hostname -f`
+DNS use local host for lmtp
+# postconf | grep lmtp_host
+# postconf -e lmtp_host_lookup=native
+# postfix reload
+# vi /opt/zimbra/postfix/conf/main.cf
 ```
 
 ### Referensi
