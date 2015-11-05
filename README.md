@@ -169,6 +169,14 @@ DNS use local host for lmtp
 # postconf -e lmtp_host_lookup=native
 # postfix reload
 # vi /opt/zimbra/postfix/conf/main.cf
+# /opt/zimbra/postfix-2.11.1.2z/conf/main.cf
+```
+
+### Change admin port
+```sh
+$ zmprov getServer domain.co.id | grep -i port
+$ zmprov ms domain.co.id zimbraAdminPort 2053
+$ zmcontrol restart
 ```
 
 ### Referensi
