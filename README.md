@@ -187,3 +187,4 @@ $ zmcontrol restart
  5. https://wiki.zimbra.com/wiki/Firewall_Configuration
  6. http://www.certdepot.net/rhel7-get-started-firewalld/
  7. http://www.cyberciti.biz/faq/rhel-redhat-centos-7-change-hostname-command/
+ 8. http://devopsx.com/zimbra-split-horizon-dns-on-ec2-with-unbound/
